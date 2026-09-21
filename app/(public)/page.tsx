@@ -71,7 +71,7 @@ export default function HomePage() {
           <div>
             <p className="mb-4 inline-flex items-center gap-2 text-sm font-medium text-accent">
               <Sparkles className="size-4" aria-hidden />
-              {BRAND.name}
+              {BRAND.slogan}
             </p>
             <h1 className="max-w-xl text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[3.25rem] lg:leading-[1.1]">
               Le flux de vos importations, sous contrôle.

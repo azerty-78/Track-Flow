@@ -113,10 +113,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <head>
-        <OrganizationJsonLd />
-      </head>
       <body className="min-h-full font-sans">
+        <OrganizationJsonLd />
         <ToastProvider>{children}</ToastProvider>
       </body>
     </html>
