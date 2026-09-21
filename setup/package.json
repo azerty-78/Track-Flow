@@ -1,0 +1,14 @@
+{
+  "name": "track-flow-setup",
+  "private": true,
+  "description": "Scripts Docker / DB uniquement. L'app Next.js se lance depuis la racine du projet.",
+  "scripts": {
+    "dev": "npm --prefix .. run dev",
+    "build": "npm --prefix .. run build",
+    "start": "npm --prefix .. run start",
+    "db:up": "docker compose --env-file .env up -d",
+    "db:down": "docker compose --env-file .env down",
+    "db:logs": "docker compose --env-file .env logs -f db",
+    "db:ps": "docker compose --env-file .env ps"
+  }
+}

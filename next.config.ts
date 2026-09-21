@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Requis pour le Dockerfile production (output standalone)
+  // Activer lors du build Docker production (setup/Dockerfile) :
   // output: "standalone",
 };
 
