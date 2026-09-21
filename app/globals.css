@@ -1,26 +1,129 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand — TrackFlow "flow" identity */
+  --tf-primary: #0b6e6e;
+  --tf-primary-hover: #095858;
+  --tf-primary-foreground: #ffffff;
+  --tf-secondary: #0c4a6e;
+  --tf-secondary-foreground: #ffffff;
+  --tf-accent: #14b8a6;
+  --tf-accent-muted: #ccfbf1;
+
+  /* Neutrals */
+  --tf-background: #f4f7f8;
+  --tf-foreground: #0f1c24;
+  --tf-card: #ffffff;
+  --tf-muted: #e8eef1;
+  --tf-muted-foreground: #5a6b75;
+  --tf-border: #d5dee4;
+  --tf-ring: #0b6e6e;
+
+  /* Semantic */
+  --tf-success: #0f766e;
+  --tf-success-bg: #ccfbf1;
+  --tf-warning: #b45309;
+  --tf-warning-bg: #fef3c7;
+  --tf-error: #b91c1c;
+  --tf-error-bg: #fee2e2;
+  --tf-info: #0369a1;
+  --tf-info-bg: #e0f2fe;
+
+  /* Surfaces */
+  --tf-sidebar: #0a1f2a;
+  --tf-sidebar-foreground: #e8eef1;
+  --tf-sidebar-muted: #8aa0ad;
+  --tf-sidebar-active: #0b6e6e;
+  --tf-header: #ffffff;
+
+  --background: var(--tf-background);
+  --foreground: var(--tf-foreground);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--tf-background);
+  --color-foreground: var(--tf-foreground);
+  --color-primary: var(--tf-primary);
+  --color-primary-hover: var(--tf-primary-hover);
+  --color-primary-foreground: var(--tf-primary-foreground);
+  --color-secondary: var(--tf-secondary);
+  --color-secondary-foreground: var(--tf-secondary-foreground);
+  --color-accent: var(--tf-accent);
+  --color-accent-muted: var(--tf-accent-muted);
+  --color-card: var(--tf-card);
+  --color-muted: var(--tf-muted);
+  --color-muted-foreground: var(--tf-muted-foreground);
+  --color-border: var(--tf-border);
+  --color-ring: var(--tf-ring);
+  --color-success: var(--tf-success);
+  --color-success-bg: var(--tf-success-bg);
+  --color-warning: var(--tf-warning);
+  --color-warning-bg: var(--tf-warning-bg);
+  --color-error: var(--tf-error);
+  --color-error-bg: var(--tf-error-bg);
+  --color-info: var(--tf-info);
+  --color-info-bg: var(--tf-info-bg);
+  --color-sidebar: var(--tf-sidebar);
+  --color-sidebar-foreground: var(--tf-sidebar-foreground);
+  --color-sidebar-muted: var(--tf-sidebar-muted);
+  --color-sidebar-active: var(--tf-sidebar-active);
+  --color-header: var(--tf-header);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    border-color: var(--tf-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--tf-background);
+    color: var(--tf-foreground);
+    font-family: var(--font-geist-sans), system-ui, sans-serif;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--tf-ring);
+    outline-offset: 2px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .tf-container {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .tf-container {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  .tf-gradient-hero {
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 20%, rgba(20, 184, 166, 0.18), transparent),
+      radial-gradient(ellipse 50% 40% at 10% 80%, rgba(11, 110, 110, 0.12), transparent),
+      linear-gradient(160deg, #0a1f2a 0%, #0c3d4a 45%, #0b6e6e 100%);
+  }
+
+  .tf-flow-line {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--tf-accent),
+      transparent
+    );
+  }
 }
