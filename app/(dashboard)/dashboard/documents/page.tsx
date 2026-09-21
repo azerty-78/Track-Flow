@@ -1,7 +1,8 @@
 import { Badge } from "@/components/ui/Badge";
 import { Card, CardHeader } from "@/components/ui/Card";
 import { EmptyState } from "@/components/ui/EmptyState";
-import { documents } from "@/lib/mock/notifications";
+import { CURRENT_USER, documents } from "@/lib/mock/notifications";
+import { getShipmentsByCustomer } from "@/lib/mock/shipments";
 import { formatDate } from "@/lib/utils/format";
 import { FileText } from "lucide-react";
 import type { Metadata } from "next";
@@ -17,8 +18,11 @@ const typeLabels = {
 } as const;
 
 export default function ClientDocumentsPage() {
+  const trackingNumbers = new Set(
+    getShipmentsByCustomer(CURRENT_USER.id).map((s) => s.trackingNumber),
+  );
   const data = documents.filter(
-    (d) => d.trackingNumber === "TF-2026-000184" || d.trackingNumber === "TF-2026-000203",
+    (d) => d.trackingNumber && trackingNumbers.has(d.trackingNumber),
   );
 
   return (
