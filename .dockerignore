@@ -1,0 +1,19 @@
+# Dockerignore racine — contexte de :
+#   docker build -f setup/Dockerfile .
+
+**/.git
+**/.gitignore
+**/.cursor
+**/node_modules
+**/.next
+**/out
+**/coverage
+**/.vercel
+**/.env
+**/.env.*
+!**/.env.example
+**/setup/.env
+**/npm-debug.log*
+**/*.md
+**/.DS_Store
+**/tsconfig.tsbuildinfo
