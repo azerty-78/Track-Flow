@@ -1,11 +1,16 @@
 export const BRAND = {
-  name: "TrackFlow",
-  tagline: "Suivez vos marchandises de la Chine au Cameroun",
+  name: process.env.NEXT_PUBLIC_APP_NAME ?? "TrackFlow",
+  tagline:
+    process.env.NEXT_PUBLIC_APP_TAGLINE ??
+    "Suivez vos marchandises de la Chine au Cameroun",
   description:
+    process.env.NEXT_PUBLIC_APP_DESCRIPTION ??
     "Plateforme de gestion et de suivi des opérations logistiques et d'importation pour les entreprises.",
-  email: "contact@trackflow.cm",
-  phone: "+237 6 XX XX XX XX",
-  address: "Douala, Cameroun",
+  email: process.env.NEXT_PUBLIC_SUPPORT_EMAIL ?? "contact@trackflow.cm",
+  phone: process.env.NEXT_PUBLIC_SUPPORT_PHONE ?? "+237 6 XX XX XX XX",
+  address: process.env.NEXT_PUBLIC_SUPPORT_ADDRESS ?? "Douala, Cameroun",
+  url: process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000",
+  locale: process.env.NEXT_PUBLIC_APP_LOCALE ?? "fr",
 } as const;
 
 export const TRACKING_STATUSES = [
